@@ -47,7 +47,21 @@ void MyVector::push_back(int item){
 
 // inserts the value at the given index
 bool MyVector::insert(int idx, int item){
-    return false;
+
+    size += 1;
+
+    // Wrap the idx
+    idx = idx % size;
+
+    if(size >= capacity) resize();
+
+    for(int i = size; i > idx; i--){
+        arr[i] = arr[i-1];
+    }
+
+    arr[idx] = item;
+
+    return true;
 }
 
 // inserts the value in the fron of the vector

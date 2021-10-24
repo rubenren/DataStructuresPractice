@@ -11,6 +11,9 @@ class MyVector{
         // use when capacity reached, double size
         // when size is 1/4 of capacity, half the size
         void resize();
+        
+        // used to move elements of the array over
+        void shifter(int idx);
 
     public:
         // Default Constructor
