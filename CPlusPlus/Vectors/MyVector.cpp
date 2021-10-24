@@ -5,7 +5,7 @@
 // Default Constructor
 MyVector::MyVector(){
     size = 0;
-    capacity = 15;
+    capacity = 16;
     arr = new int[capacity];
 
 }
@@ -40,7 +40,7 @@ int MyVector::at(int idx){
 // Adds a new value to the end of the vector
 // returns true if successful false otherwise
 void MyVector::push_back(int item){
-    resize();
+    if(size >= capacity) resize();
     size += 1;
     arr[size - 1] = item;
 }
