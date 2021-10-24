@@ -15,7 +15,7 @@ $(TARGET): $(TARGET).o MyVector.o
 $(TARGET).o: $(TARGET).cpp MyVector.o
 	$(CC) $(CFLAGS) -c $(TARGET).cpp
 
-MyVector.o: MyVector.h
+MyVector.o: MyVector.hpp
 
 # using del for windows TODO(LOW): change this based on OS
 clean:
