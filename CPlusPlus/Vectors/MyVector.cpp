@@ -40,8 +40,8 @@ int MyVector::at(int idx){
 // Adds a new value to the end of the vector
 // returns true if successful false otherwise
 void MyVector::push_back(int item){
-    if(size >= capacity) resize();
     size += 1;
+    if(size >= capacity) resize();
     arr[size - 1] = item;
 }
 
@@ -94,7 +94,7 @@ int MyVector::find(int item){
 void MyVector::resize(){
 
     if(size >= capacity) capacity *= growthFactor;
-    else if(size <= capacity / 4) capacity /= growthFactor;
+    else if(size <= capacity / 4 && capacity / 4 > minSize) capacity /= growthFactor;
     // Only want to move things around if we need a resize
     else return;
 

@@ -8,6 +8,8 @@ class MyVector{
         int *arr;
         int growthFactor = 2;
 
+        int minSize = 16;
+
         // use when capacity reached, double size
         // when size is 1/4 of capacity, half the size
         void resize();
