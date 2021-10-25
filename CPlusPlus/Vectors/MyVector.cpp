@@ -64,14 +64,25 @@ bool MyVector::insert(int idx, int item){
     return true;
 }
 
-// inserts the value in the fron of the vector
+// inserts the value in the front of the vector
 void MyVector::prepend(int item){
     insert(0, item);
 }
 
 // removes the last item and returns it
 int MyVector::pop(){
-    return 0;
+    if(size == 0) {
+        throw "Can't pop an empty vector";
+        exit(EXIT_FAILURE);
+    }
+
+    int retVal = arr[size - 1];
+
+    size = size - 1;
+
+    resize();
+
+    return retVal;
 }
 
 // deletes the item at the index, (shifts values over)
