@@ -107,8 +107,12 @@ void MyVector::remove(int item){
 }
 
 // returns first index found with the item given
+// -1 if not found
 int MyVector::find(int item){
-    return 0;
+    for(int i = 0; i < size; i++){
+        if(item == arr[i]) return i;
+    }
+    return -1;
 }
 
 // use when capacity reached, double size
