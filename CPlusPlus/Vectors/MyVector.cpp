@@ -88,7 +88,7 @@ int MyVector::pop(){
 // deletes the item at the index, (shifts values over)
 void MyVector::del(int idx){
     if(size == 0){
-        throw "Can't del from an empty string";
+        throw "Can't del from an empty vector";
         exit(EXIT_FAILURE);
     }
 
@@ -103,7 +103,17 @@ void MyVector::del(int idx){
 
 // searches and removes all instances of this item
 void MyVector::remove(int item){
+    int origSize = size;
 
+    int j = 0;
+    for(int i = 0; i < origSize; i++){
+        if(arr[j] == item){
+            del(j);
+        }
+        else{
+            j++;
+        }
+    }
 }
 
 // returns first index found with the item given
