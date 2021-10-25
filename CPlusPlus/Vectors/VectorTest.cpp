@@ -126,9 +126,36 @@ void testDel(){
 }
 
 void testRemove(){
+    MyVector myVec;
 
+    for(int i = 0; i < 5; i++) myVec.push_back(10);
+
+    myVec.remove(10);
+
+    ASSERT(myVec.get_size() == 0, "remove -> expected 0, got: " + to_string(myVec.get_size()));
+
+    myVec.push_back(1);
+    myVec.push_back(2);
+    myVec.push_back(3);
+
+    myVec.remove(2);
+
+    ASSERT(myVec.at(0) == 1, "remove -> expected 1, got: " + to_string(myVec.at(0)));
+    ASSERT(myVec.at(1) == 3, "remove -> expected 3, got: " + to_string(myVec.at(1)));
+    
 }
 
 void testFind(){
+    MyVector myVec;
+
+    ASSERT(myVec.find(10) == -1, "find -> expected -1, got: " + myVec.find(10));
+
+    myVec.push_back(10);
+    myVec.push_back(5);
+    myVec.push_back(24);
+    myVec.push_back(10);
+
+    ASSERT(myVec.find(10) == 0, "find -> expected 0, got: " + myVec.find(10));
+    ASSERT(myVec.find(5) == 1, "find -> expected 1, got: " + myVec.find(5));
 
 }
