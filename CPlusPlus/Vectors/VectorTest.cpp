@@ -15,11 +15,13 @@ void ASSERT(bool condition, string msg, bool showInfo = false){
 
 void testSize();
 void testResize();
+void testAt();
 
 int main(){
 
     testSize();
     testResize();
+    testAt();
 
 }
 
@@ -49,5 +51,15 @@ void testResize(){
     myVec.push_back(3);
     ASSERT(myVec.get_capacity() == 32, "capacity -> expected 32, got: " + to_string(myVec.get_capacity()), true);
     ASSERT(myVec.get_size() == 17, "size -> expected 17, got: " + to_string(myVec.get_size()), true);
+}
 
+void testAt(){
+    MyVector myVec;
+
+    myVec.push_back(10);
+    ASSERT(myVec.at(0) == 10, "value -> expected 10, got: " + to_string(myVec.at(0)), true);
+
+    myVec.push_back(20);
+    ASSERT(myVec.at(1) == 20, "value -> expected 20, got: " + to_string(myVec.at(1)), true);
+    ASSERT(myVec.at(0) == 10, "value -> expected 10, got: " + to_string(myVec.at(0)), true);
 }
