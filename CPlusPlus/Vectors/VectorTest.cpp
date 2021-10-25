@@ -114,7 +114,15 @@ void testPop(){
 }
 
 void testDel(){
+    MyVector myVec;
 
+    for(int i = 0; i < 10; i++){
+        myVec.push_back(i);
+    }
+
+    myVec.del(3);
+
+    ASSERT(myVec.at(3) == 4, "del -> expected 4, got: " + to_string(myVec.at(3)));
 }
 
 void testRemove(){
