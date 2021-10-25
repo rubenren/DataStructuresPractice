@@ -87,6 +87,17 @@ int MyVector::pop(){
 
 // deletes the item at the index, (shifts values over)
 void MyVector::del(int idx){
+    if(size == 0){
+        throw "Can't del from an empty string";
+        exit(EXIT_FAILURE);
+    }
+
+    size = size - 1;
+    resize();
+
+    for(int i = idx; i < size; i++){
+        arr[i] = arr[i + 1];
+    }
 
 }
 
