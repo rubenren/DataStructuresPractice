@@ -103,7 +103,14 @@ void testPrepend(){
 }
 
 void testPop(){
+    MyVector myVec;
 
+    myVec.push_back(1);
+    myVec.push_back(2);
+    myVec.push_back(10);
+    int val = myVec.pop();
+
+    ASSERT(val == 10, "pop -> expected 10, got: " + to_string(val));
 }
 
 void testDel(){
