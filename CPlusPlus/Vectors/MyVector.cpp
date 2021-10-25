@@ -65,8 +65,8 @@ bool MyVector::insert(int idx, int item){
 }
 
 // inserts the value in the fron of the vector
-bool MyVector::prepend(int item){
-    return false;
+void MyVector::prepend(int item){
+    insert(0, item);
 }
 
 // removes the last item and returns it

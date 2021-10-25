@@ -41,7 +41,7 @@ class MyVector{
         bool insert(int idx, int item);
 
         // inserts the value in the fron of the vector
-        bool prepend(int item);
+        void prepend(int item);
 
         // removes the last item and returns it
         int pop();
