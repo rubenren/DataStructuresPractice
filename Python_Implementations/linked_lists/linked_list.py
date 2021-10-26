@@ -17,7 +17,7 @@ class LinkedList:
     def at(self, idx_in):
         # If the size is zero, throws error
         if self.size_ == 0:
-            raise Excpetion('Can\'t reference from an empty list!')
+            raise Exception('Can\'t reference from an empty list!')
 
         # Wrap the idx by the size
         idx = idx_in % self.size_
