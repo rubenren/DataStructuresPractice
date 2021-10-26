@@ -17,6 +17,11 @@ class TestingLinkedList(unittest.TestCase):
         self.ll.pop_back()
         self.assertEqual(self.ll.size(), 1)
 
+    def test_empty(self):
+        self.assertTrue(self.ll.is_empty())
+
+        self.ll.push_back(1)
+        self.assertFalse(self.ll.is_empty())
+
 if __name__ == '__main__':
     unittest.main()
-    print('Made it here!')
