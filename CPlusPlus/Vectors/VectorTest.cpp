@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// Not necessarily exhaustive
+
 void ASSERT(bool condition, string msg, bool showInfo = false){
     if(!condition){
         cerr << "TEST FAILED: " << msg << endl;
