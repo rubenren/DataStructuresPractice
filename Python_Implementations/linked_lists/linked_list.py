@@ -56,11 +56,15 @@ class LinkedList:
 
     def front(self):
         """Returns the value of the front element"""
+        return self.head_.get_data()
 
     def back(self):
-        pass
+        """Returns the value of the back element"""
+        return self.tail_.get_data()
 
     def __find_node(self, idx):
+        """Private mehtod to get the node object of an index"""
+        # Can be improved to save a bit of time
         if self.size_ != 0: idx = idx % self.size_
         else: idx = 0
         
@@ -71,6 +75,7 @@ class LinkedList:
         return retNode
 
     def insert(self, idx, data):
+        """Places a new node with the data in the index specified"""
         if self.size_ != 0: idx = idx % (self.size_ + 1)
         else: idx = 0
 
