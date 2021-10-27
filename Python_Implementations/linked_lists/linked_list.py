@@ -2,6 +2,9 @@ from node import Node
 
 class LinkedList:
     """A linked list to hold nodes"""
+    # Apparently linked lists using pointers are not that great for speed
+    # because they tend to not have any particular pattern when stored in memory,
+    # which causes a higher chache miss count than an array which is contiguous in memory
 
     def __init__(self):
         self.head_ = None
