@@ -103,10 +103,19 @@ class LinkedList:
 
 
     def erase(self, idx):
-        pass
+        """Erases the given index value"""
+        toBeGone = self.__find_node(idx)
+
+        if toBeGone.get_next():
+            toBeGone.get_next().set_prev(toBeGone.get_prev())
+        if toBeGone.get_prev():
+            toBeGone.get_prev().set_next(toBeGone.get_next())
+
+        del toBeGone
 
     def value_n_from_end(self, n):
-        pass
+        """Returns the value fron the node n away from the end"""
+        return self.__find_node(self.size_ - n).get_data()
 
     def reverse(self):
         pass
