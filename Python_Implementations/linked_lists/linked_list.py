@@ -32,16 +32,30 @@ class LinkedList:
         self.insert(0, data)
 
     def pop_front(self):
-        pass
+        """Remove the front element and return it"""
+        retVal = self.head_.get_data()
+
+        self.head_ = self.head_.get_next()
+        
+        self.head_.set_prev(None)
+
+        return retVal
 
     def push_back(self, data):
         self.insert(self.size_, data)
 
     def pop_back(self):
-        pass
+        """Removes the back element and returns it's value"""
+        retVal = self.tail_.get_data()
+
+        self.tail_ = self.tail_.get_prev()
+
+        self.tail_.set_next(None)
+
+        return retVal
 
     def front(self):
-        pass
+        """Returns the value of the front element"""
 
     def back(self):
         pass
