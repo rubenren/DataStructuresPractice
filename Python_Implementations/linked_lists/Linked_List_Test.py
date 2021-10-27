@@ -22,20 +22,20 @@ class TestingLinkedList(unittest.TestCase):
         self.ll.push_back(1)
         self.assertFalse(self.ll.is_empty())
 
-    def test_at(self):
+    def test_value_at(self):
         for i in range(5):
             self.ll.push_back(1)
         self.ll.push_back(20)
         for i in range(5):
             self.ll.push_back(1)
 
-        self.assertEqual(self.ll.at(5), 20)
+        self.assertEqual(self.ll.value_at(5), 20)
 
     def test_push_front(self):
         for i in range(5):
             self.ll.push_front(i)
 
-        self.assertEqual(self.ll.at(0), 4)
+        self.assertEqual(self.ll.value_at(0), 4)
 
     def test_pop_front(self):
         self.ll.push_back(1)
@@ -49,8 +49,8 @@ class TestingLinkedList(unittest.TestCase):
         self.ll.push_back(2)
         self.ll.push_back(3)
 
-        self.assertEqual(self.ll.at(0), 1)
-        self.assertEqual(self.ll.at(2), 3)
+        self.assertEqual(self.ll.value_at(0), 1)
+        self.assertEqual(self.ll.value_at(2), 3)
 
     def test_pop_back(self):
         self.ll.push_back(1)
@@ -81,7 +81,7 @@ class TestingLinkedList(unittest.TestCase):
         self.ll.push_back(3)
 
         self.ll.insert(1, 25)
-        self.assertEqual(self.ll.at(1), 25)
+        self.assertEqual(self.ll.value_at(1), 25)
 
     def test_erase(self):
         self.ll.push_back(1)
@@ -91,7 +91,7 @@ class TestingLinkedList(unittest.TestCase):
         self.ll.erase(1)
 
         self.assertEqual(self.ll.size(), 2)
-        self.assertEqual(self.ll.at(1), 3)
+        self.assertEqual(self.ll.value_at(1), 3)
 
     def test_val_n_from_end(self):
         self.ll.push_back(1)
@@ -120,7 +120,7 @@ class TestingLinkedList(unittest.TestCase):
         self.ll.remove_value(3)
 
         self.assertEqual(self.ll.size(), 4)
-        self.assertEqual(self.ll.at(2), 5)
+        self.assertEqual(self.ll.value_at(2), 5)
 
 if __name__ == '__main__':
     unittest.main()
