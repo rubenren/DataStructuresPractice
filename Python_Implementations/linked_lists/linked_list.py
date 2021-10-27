@@ -33,11 +33,22 @@ class LinkedList:
 
     def pop_front(self):
         """Remove the front element and return it"""
+
+        if self.size_ == 0:
+            raise Exception('Can\'t pop from an empty list!')
+        if self.size_ == 1:
+            retVal = self.head_.get_data()
+            self.head_ = None
+            self.tail_ = None
+            return retVal
+
         retVal = self.head_.get_data()
 
         self.head_ = self.head_.get_next()
         
         self.head_.set_prev(None)
+
+        self.size_ -= 1
 
         return retVal
 
@@ -46,11 +57,22 @@ class LinkedList:
 
     def pop_back(self):
         """Removes the back element and returns it's value"""
+
+        if self.size_ == 0:
+            raise Exception('Can\'t pop from an empty list!')
+        if self.size_ == 1:
+            retVal = self.head_.get_data()
+            self.head_ = None
+            self.tail_ = None
+            return retVal
+
         retVal = self.tail_.get_data()
 
         self.tail_ = self.tail_.get_prev()
 
         self.tail_.set_next(None)
+
+        self.size_ -= 1
 
         return retVal
 
@@ -113,12 +135,41 @@ class LinkedList:
 
         del toBeGone
 
+        self.size_ -= 1
+
     def value_n_from_end(self, n):
         """Returns the value fron the node n away from the end"""
-        return self.__find_node(self.size_ - n).get_data()
+        return self.__find_node(self.size_ - n - 1).get_data()
 
     def reverse(self):
-        pass
+        """Reverses the order of the list"""
+
+        temp = None
+        curr = self.head_
+        while curr.get_next() != None:
+            temp = curr.get_prev()
+            curr.set_prev(curr.get_next())
+            curr.set_next(temp)
+            curr = curr.get_prev() # Really bad for readability should improve later
+
+        temp = self.tail_
+        self.tail_ = self.head_
+        self.head_ = temp
+
+    def __delete_node(self, inNode):
+        if inNode.get_prev():
+            temp = inNode.get_prev()
+        if inNode.get_next():
+            temp.set_next(inNode.get_next())
+        del inNode
+        
 
     def remove_value(self, target):
-        pass
+        """Remove the first instance of the value"""
+        temp = self.head_
+        for i in range(self.size_):
+            if temp.get_data() == target:
+                self.__delete_node(temp)
+                self.size_ -= 1
+                return
+            temp = temp.get_next()
